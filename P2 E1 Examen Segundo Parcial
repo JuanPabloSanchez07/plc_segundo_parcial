@@ -1,0 +1,39 @@
+temperatura = float(input("Ingrese la temperatura ambiente en grados Celsius: "))
+humedad = float(input("Ingrese el porcentaje de humedad en el aire: "))
+dia_semana = input("Ingrese el día de la semana (Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo): ")
+
+def es_dia_de_riego(dia):
+    return dia in ["Martes", "Jueves", "Sábado"]
+
+def llevar_adentro_de_casa(temperatura):
+    if temperatura < 20:
+        return "Llevarla adentro de la casa"
+    elif temperatura > 25:
+        return "Llevarla adentro de la casa y encender el ventilador"
+    else:
+        return "Buenas condiciones"
+
+def encender_ventilador(temperatura):
+    if temperatura > 25:
+        return "Llevarla adentro de la casa y encender el ventilador"
+    else:
+        return "No es necesario encender el ventilador"
+
+def regar_rubi(humedad, dia):
+    if es_dia_de_riego(dia):
+        return "Regar a Rubi"
+    elif humedad < 20:
+        return "Debes regar a Rubi"
+    elif 20 <= humedad <= 22:
+        return "Humedad adecuada"
+    elif humedad > 22:
+        return "No es necesario regar a Rubí"
+
+cuidado_riego = regar_rubi(humedad, dia_semana)
+cuidado_temperatura = llevar_adentro_de_casa(temperatura)
+cuidado_ventilador = encender_ventilador(temperatura)
+
+print("Cuidado de Rubí:")
+print(f"Día de riego: {cuidado_riego}")
+print(f"Cuidado de temperatura: {cuidado_temperatura}")
+print(f"Cuidado de ventilador: {cuidado_ventilador}")
